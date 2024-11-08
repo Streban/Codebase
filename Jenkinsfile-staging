@@ -1,0 +1,32 @@
+pipeline {
+	agent any
+	stages {
+		stage('Clone repository') {
+			steps {
+				git credentialsId: 'gitcredentional', url: 'https://github.com/rubnawazgondal/plexaaremailapi-aks.git' , branch: 'staging-branch'
+			}
+		}
+		stage('Build') {
+			steps {
+				script {
+					sh '''
+						docker build -t plexaar/staging-plexaaremailapi-aks:$BUILD_NUMBER -f Dockerfile . || { echo "Docker build failed"; exit 1; } &&
+						docker push plexaar/staging-plexaaremailapi-aks:$BUILD_NUMBER
+					'''
+				}
+			}
+		}
+		stage('Deploy') {
+			steps {
+				withCredentials([file(credentialsId: 'kubernetesfile-plexaar-staging', variable: 'KUBECONFIG')]) {
+					script {
+						sh '''
+							sed -i "s/:latest/:$BUILD_NUMBER/g" staging-plexaaremailapi-aks && \
+							kubectl apply -f staging-plexaaremailapi-aks
+						'''
+					}
+				}
+			}
+		}
+	}
+}

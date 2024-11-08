@@ -1,0 +1,7 @@
+::1 - - [13/Nov/2023:06:53:54 +0000] "GET /email_svc/pb/seed/credentails HTTP/1.1" 200 50 "-" "PostmanRuntime/7.34.0"
+::1 - - [20/Nov/2023:11:56:23 +0000] "POST /email_svc/pb/send/contactme HTTP/1.1" 404 43 "-" "PostmanRuntime/7.35.0"
+::1 - - [20/Nov/2023:11:59:33 +0000] "POST /email_svc/pb/send/contactme HTTP/1.1" 200 22 "-" "PostmanRuntime/7.35.0"
+::1 - - [20/Nov/2023:12:00:30 +0000] "POST /email_svc/pb/send/contactme HTTP/1.1" 200 22 "-" "PostmanRuntime/7.35.0"
+::1 - - [06/Dec/2023:12:43:06 +0000] "POST /email_svc/pb/send/contactme HTTP/1.1" 200 22 "-" "PostmanRuntime/7.35.0"
+::1 - - [06/Dec/2023:12:46:12 +0000] "POST /email_svc/pb/send/contactme HTTP/1.1" 200 22 "-" "PostmanRuntime/7.35.0"
+::1 - - [06/Dec/2023:12:47:46 +0000] "POST /email_svc/pb/send/contactme HTTP/1.1" 200 22 "-" "PostmanRuntime/7.35.0"
